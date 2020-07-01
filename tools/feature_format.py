@@ -69,7 +69,7 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
             except KeyError:
                 print ("error: key ", feature, " not present")
                 return
-            value = dictionary[key][feature]            
+            value = dictionary[key][feature]
             if value=="NaN" and remove_NaN:
                 value = 0
             tmp_list.append( float(value) )
