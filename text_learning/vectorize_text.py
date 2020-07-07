@@ -40,7 +40,7 @@ class StrToBytes:
         return self.fileobj.readline(size).encode()
 
 
-# In[5]:
+# In[ ]:
 
 
 ### temp_counter is a way to speed up the development--there are
@@ -59,7 +59,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         #print (path)
         email = open(path, "r")
         words_email = parseOutText(email)
-        stopwords   = {"sara", "shackleton", "chris", "germani"}
+        stopwords   = {"sara", "shackleton", "chris", "germani","sshacklensf","cgermannsf"}
         words_email = [word for word in re.split("\W+",words_email) if word.lower() not in stopwords]
         word_data.append(' '.join(words_email))
         if name == 'sara':
@@ -79,57 +79,57 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         email.close()
 
 print ("emails processed")
-print(word_data)
+#print(word_data)
 pickle.dump( word_data, open("your_word_data.pkl", "wb"))
 pickle.dump( from_data, open("your_email_authors.pkl", "wb"))
 
 
-# In[6]:
+# In[ ]:
 
 
 from_sara.close()
 from_chris.close()
 
 
-# In[7]:
+# In[ ]:
 
 
 print(word_data[152])
 
 
-# In[17]:
+# In[ ]:
 
 
 print (len(word_data))
 
 
-# In[32]:
+# In[ ]:
 
 
 from nltk.corpus import stopwords
 sw = stopwords.words("english")
 
 
-# In[38]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(stop_words='english',lowercase=True)
 
 
-# In[39]:
+# In[ ]:
 
 
 vectorizer.fit_transform(word_data)
 
 
-# In[40]:
+# In[ ]:
 
 
 print (len(vectorizer.get_feature_names()))
 
 
-# In[41]:
+# In[ ]:
 
 
 print (vectorizer.get_feature_names()[34597])
